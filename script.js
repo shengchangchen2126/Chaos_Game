@@ -121,8 +121,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
     dpr = Math.max(1, window.devicePixelRatio || 1);
 
+    // Resize both canvases (this clears them to BLACK when alpha:false)
     setCanvasSize(base, cloud, w, h);
     setCanvasSize(hudCanvas, hud, w, h);
+
+    // ⬇️ Immediately repaint the cloud to white so it isn't black
+    clearCloud();
 
     const sx = w / oldCssW;
     const sy = h / oldCssH;
