@@ -53,7 +53,23 @@ window.addEventListener("DOMContentLoaded", () => {
   const vertexRadius = 8;
   const seedRadius = 6;
 
-  const POINT_SIZE = 5;
+  let pointSize = 5;
+
+  const dotSizeInput = document.getElementById("dotSize");
+  if (dotSizeInput) {
+    dotSizeInput.value = String(pointSize);
+    const applyDotSize = () => {
+      const v = parseInt(dotSizeInput.value, 10);
+      if (Number.isFinite(v)) {
+        pointSize = Math.max(1, Math.min(50, v));
+        dotSizeInput.value = String(pointSize);
+      }
+    };
+    dotSizeInput.addEventListener("change", applyDotSize);
+    dotSizeInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") applyDotSize();
+    });
+  }
 
   const JUMP = 0.5;
 
@@ -177,7 +193,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   function plotPoint(x, y) {
     cloud.fillStyle = "#000";
-    cloud.fillRect(x, y, POINT_SIZE, POINT_SIZE);
+    cloud.fillRect(x, y, pointSize, pointSize);
   }
 
   function stepOnce() {
