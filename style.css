@@ -23,8 +23,6 @@ html, body{
 
 #count {
     padding: 0;
-    padding-top: 4px;
-    padding-left: 5px;
     margin: 0;
     height: 21px;
     vertical-align: middle;
@@ -42,4 +40,8 @@ html, body{
     -ms-touch-action: none;
     user-select: none;
     -webkit-user-select: none;
+}
+
+input {
+    white-space: nowrap;
 }

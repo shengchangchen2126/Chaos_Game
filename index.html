@@ -10,12 +10,15 @@
 </head>
 <body>
     <div class="setting">
-        <textarea id="count" placeholder="# of vertices"></textarea>
+        <div>
+            <span># of Vertices</span>
+            <input id="count" type="number" min="3" max="20" placeholder="# of vertices"></input>
+        </div>
         <button id="start">Start</button>
         <button id="reset">Reset</button>
         <div>
             <span>Dot px</span>
-            <input id="dotSize" type="number" min="1" max="50" value="5" />
+            <input id="dotSize" type="number" min="5" max="50" value="5" />
         </div>
     </div>
     <div class="game">
